@@ -97,7 +97,7 @@ function displayStaticLayout() {
                             <p class="text-gray-600 description text-ellipsis overflow-hidden" style="display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 4;">Think of Deep Models as a turbo-charged learning system powered by artificial neural networks. Imagine a series of layers, like a multi-decker sandwich, where each layer helps digest the data a bit more to extract meaning. The deeper the sandwich (layers), the better the model can identify complex patterns like a data Sherlock Holmes. The result? Magic — whether it’s turning speech into text or recognizing a cat’s face in a sea of memes.
                             </p>
                             <div class="flex justify-end mt-4">
-                                <a href="https://medium.com/@arjunshrivas1997/unlocking-the-mysteries-of-deep-models-from-neurons-to-ninja-level-networks-f2f0976363e5" class="border border-blue-600 text-blue-600 py-1 px-2 rounded hover:bg-blue-600 hover:text-white transition duration-300 text-center text-sm">
+                                <a href="https://medium.com/@arjunshrivas1997/unlocking-the-mysteries-of-deep-models-from-neurons-to-ninja-level-networks-f2f0976363e5" target="_blank" class="border border-blue-600 text-blue-600 py-1 px-2 rounded hover:bg-blue-600 hover:text-white transition duration-300 text-center text-sm">
                                     Read More
                                 </a>
                             </div>
@@ -113,7 +113,7 @@ function displayStaticLayout() {
                                 In the rapidly evolving world of e-commerce, understanding customer behavior and operational efficiency is crucial for retailers. Target, a renowned global brand, aims to provide exceptional customer experiences. This case study explores Target’s operations in Brazil, utilizing data from over 100,000 orders placed between 2016 and 2018 to uncover valuable insights that can inform business strategies and improve customer satisfaction
                             </p>
                             <div class="flex justify-end mt-4">
-                                <a href="https://medium.com/@arjunshrivas1997/the-delivery-dynamics-understanding-customer-patterns-across-brazil-e205d9437082" class="border border-blue-600 text-blue-600 py-1 px-2 rounded hover:bg-blue-600 hover:text-white transition duration-300 text-center text-sm">
+                                <a href="https://medium.com/@arjunshrivas1997/the-delivery-dynamics-understanding-customer-patterns-across-brazil-e205d9437082" target="_blank" class="border border-blue-600 text-blue-600 py-1 px-2 rounded hover:bg-blue-600 hover:text-white transition duration-300 text-center text-sm">
                                     Read More
                                 </a>
                             </div>
@@ -131,7 +131,7 @@ function displayStaticLayout() {
                                 Banks, as we all know are essential to the Smooth operation of the financial Sector. they collect amount put it and then use it to land it to those who are now need money.Bank Ensure the stability and flow of money in the economy by converting asset and liabilities such as deposits and loans and mortgages and by offering transactional service.
                             </p>
                             <div class="flex justify-end mt-4">
-                                <a href="https://medium.com/@arjunshrivas1997/fintech-revolution-impact-on-traditional-banking-5a39c2a7abca" class="border border-blue-600 text-blue-600 py-1 px-2 rounded hover:bg-blue-600 hover:text-white transition duration-300 text-center text-sm">
+                                <a href="https://medium.com/@arjunshrivas1997/fintech-revolution-impact-on-traditional-banking-5a39c2a7abca" target="_blank" class="border border-blue-600 text-blue-600 py-1 px-2 rounded hover:bg-blue-600 hover:text-white transition duration-300 text-center text-sm">
                                     Read More
                                 </a>
                             </div>
@@ -147,7 +147,7 @@ function displayStaticLayout() {
                                 The financial industry is undergoing a major transformation with the rise of fintech and the introduction of new banking models like open banking. While the traditional closed banking system has long been the cornerstone of financial services, open banking has emerged as a disruptor, allowing for greater innovation and competition. In this blog, we’ll explore the key differences between closed banking and open banking, and how open banking fits into the broader fintech revolution.
                             </p>
                             <div class="flex justify-end mt-4">
-                                <a href="https://medium.com/@arjunshrivas1997/closed-banking-vs-open-banking-understanding-the-evolution-of-financial-services-bf4a58c5f7a1" class="border border-blue-600 text-blue-600 py-1 px-2 rounded hover:bg-blue-600 hover:text-white transition duration-300 text-center text-sm">
+                                <a href="https://medium.com/@arjunshrivas1997/closed-banking-vs-open-banking-understanding-the-evolution-of-financial-services-bf4a58c5f7a1"  target="_blank" class="border border-blue-600 text-blue-600 py-1 px-2 rounded hover:bg-blue-600 hover:text-white transition duration-300 text-center text-sm">
                                     Read More
                                 </a>
                             </div>
@@ -163,7 +163,7 @@ function displayStaticLayout() {
                                 It’s important to understand that open banking and fintech are not the same, but they are closely related. Fintech refers to the broader industry of technological innovation in financial services, while open banking is a specific framework that allows banks and fintechs to collaborate by sharing data.
                             </p>
                             <div class="flex justify-end mt-4">
-                                <a href="#" class="border border-blue-600 text-blue-600 py-1 px-2 rounded hover:bg-blue-600 hover:text-white transition duration-300 text-center text-sm">
+                                <a href="https://medium.com/@arjunshrivas1997/how-open-banking-differs-from-fintech-37375d0a1c35"  target="_blank" class="border border-blue-600 text-blue-600 py-1 px-2 rounded hover:bg-blue-600 hover:text-white transition duration-300 text-center text-sm">
                                     Read More
                                 </a>
                             </div>
