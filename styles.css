@@ -37,3 +37,17 @@
   margin-left: 10%;
   margin-right: 10%;
 }
+
+.header-container {
+    margin-left: 10%;
+    margin-right: 10%;
+    /* Optional: You can add max-width if you want to limit the width */
+    max-width: 1200px;
+    background-color: #f5f5f5; /* For visibility */
+}
+
+/* Styling the header */
+header {
+    padding: 80px;
+    text-align: center; /* Center the text in the header */
+}
