@@ -16,69 +16,67 @@
 
 
 
-  async function fetchMediumBlogs() {
+async function fetchMediumBlogs() {
+  const MEDIUM_USERNAME = 'arjunshrivas1997';
+  // rss2json converts Medium's RSS feed into clean JSON — free, no API key needed
+  // Free tier — returns latest posts (no count param needed, default is enough)
+  const RSS_API = `https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@${MEDIUM_USERNAME}`;
+
   try {
-      //https://v1.nocodeapi.com/arjunshrivas/medium/xgHAYdyAbUMrIMJb
-      const response = await fetch('https://v1.nocodeapi.com/arjunshrivas/');
-      // Check if the response is okay (status 200)
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
+    const response = await fetch(RSS_API);
+    if (!response.ok) throw new Error('RSS fetch failed');
+
+    const data = await response.json();
+    if (data.status !== 'ok' || !data.items || data.items.length === 0) {
+      throw new Error('No items in feed');
     }
-      const blogs = await response.json();
 
-      const blogContainer = document.getElementById('blog-container');
-      blogContainer.innerHTML = ''; // Clear previous content
+    const blogContainer = document.getElementById('blog-container');
+    blogContainer.innerHTML = '';
 
-      // Loop through each blog post
-      blogs.forEach((item) => {
-          const blogCard = document.createElement('div');
-          blogCard.className = 'border border-gray-300 rounded-lg shadow-md flex flex-col h-full';
-          
-          // Extract image from content using regex
-          const imgRegex = /<img.*?src="(.*?)"/;
-          const imgMatch = item.content.match(imgRegex);
-          const blogImageSrc = imgMatch ? imgMatch[1] : 'https://via.placeholder.com/300'; // Fallback image
+    data.items.forEach(item => {
+      // Extract first image from content
+      const imgMatch = item.content && item.content.match(/<img[^>]+src="([^">]+)"/);
+      const thumbnail = item.thumbnail || (imgMatch ? imgMatch[1] : null);
 
-          const blogImage = document.createElement('img');
-          blogImage.src = blogImageSrc;
-          blogImage.alt = item.title;
-          blogImage.className = 'w-full h-48 object-cover rounded-t-lg'; // Fixed height
+      // Clean description — strip HTML, limit to 3 lines
+      const plainDesc = stripHtml(item.description || item.content || '').slice(0, 220);
 
-          const blogContent = document.createElement('div');
-          blogContent.className = 'p-4 flex-grow flex flex-col';
+      // Format publish date
+      const date = item.pubDate ? new Date(item.pubDate).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' }) : '';
 
-          const blogTitle = document.createElement('h3');
-          blogTitle.className = 'font-bold text-xl text-gray-800 mb-2';
-          blogTitle.innerText = stripHtml(item.title);
+      // Build card
+      const card = document.createElement('div');
+      card.className = 'glass-card flex flex-col h-full overflow-hidden fade-up visible';
 
-          const blogDescription = document.createElement('p');
-          blogDescription.className = 'text-gray-600 description flex-grow overflow-hidden';
-          blogDescription.style = 'display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3;'; // Limit to 3 lines
-          blogDescription.innerText = stripHtml(item.content_encoded); // Use content_encoded for detailed description
+      card.innerHTML = `
+        ${thumbnail
+          ? `<img src="${thumbnail}" alt="${item.title}" class="w-full rounded-t-2xl object-cover" style="height:180px" onerror="this.style.display='none'">`
+          : `<div style="height:180px;background:linear-gradient(135deg,#EEF2FF,#F0FDFF);border-radius:16px 16px 0 0;display:flex;align-items:center;justify-content:center;font-size:2rem;">📝</div>`
+        }
+        <div class="p-5 flex flex-col flex-grow">
+          ${date ? `<span style="font-size:0.72rem;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:0.05em">${date}</span>` : ''}
+          <h3 class="font-bold text-base text-gray-800 mt-1 mb-2" style="line-height:1.4">${item.title}</h3>
+          <p class="text-gray-500 text-sm flex-grow" style="display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden">${plainDesc}…</p>
+          <div class="flex justify-end mt-4">
+            <a href="${item.link}" target="_blank" class="btn-outline-rect text-sm py-1 px-3 font-semibold transition">Read More</a>
+          </div>
+        </div>
+      `;
 
-          // Create a container for the "Read More" button
-          const buttonContainer = document.createElement('div');
-          buttonContainer.className = 'flex justify-end mt-4';
+      blogContainer.appendChild(card);
+    });
 
-          // Link to full blog post
-          const blogLink = document.createElement('a');
-          blogLink.href = item.link;
-          blogLink.target = '_blank'; // Open in new tab
-          blogLink.className = 'border border-blue-600 text-blue-600 py-1 px-2 rounded hover:bg-blue-600 hover:text-white transition duration-300 text-center text-sm';
-          blogLink.innerText = 'Read More';
+    // Trigger fade-in for new cards
+    if (typeof fadeObserver !== 'undefined') {
+      blogContainer.querySelectorAll('.fade-up').forEach(el => fadeObserver.observe(el));
+    } else {
+      blogContainer.querySelectorAll('.fade-up').forEach(el => el.classList.add('visible'));
+    }
 
-          // Append elements to blog card
-          buttonContainer.appendChild(blogLink); // Append button to its container
-          blogContent.appendChild(blogTitle);
-          blogContent.appendChild(blogDescription);
-          blogContent.appendChild(buttonContainer); // Append button container to content
-          blogCard.appendChild(blogImage);
-          blogCard.appendChild(blogContent);
-          blogContainer.appendChild(blogCard);
-      });
   } catch (error) {
-    console.error('Error fetching Medium blogs:', error);
-    displayStaticLayout(); // Call function to display static content
+    console.warn('Could not fetch Medium blogs, showing static content:', error.message);
+    displayStaticLayout();
   }
 }
 
@@ -144,15 +142,13 @@ function displayStaticLayout() {
                 </div>
             </div>
         </div>`;
-             
-    `;
 
     blogContainer.innerHTML = staticContent; // Insert static content
 }
 
 
-// Call the function to fetch blogs once the DOM is fully loaded
-document.addEventListener('DOMContentLoaded', fetchMediumBlogs);
+// scripts.js loads with defer — DOM is already ready, call directly
+fetchMediumBlogs();
 
 function stripHtml(html) {
   const tempDiv = document.createElement('div'); // Create a temporary element
