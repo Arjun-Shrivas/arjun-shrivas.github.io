@@ -2,11 +2,6 @@
    PORTFOLIO — LIGHT THEME WITH GLASSMORPHISM & ANIMATIONS
    ============================================================ */
 
-/* Tailwind directives */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 /* ---------- CSS Variables ---------- */
 :root {
   --primary:       #6366F1;
@@ -25,13 +20,11 @@
 }
 
 /* ---------- Base ---------- */
-@layer utilities {
-  .line-clamp-3 {
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
-  }
+.line-clamp-3 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
 }
 
 html, body {
