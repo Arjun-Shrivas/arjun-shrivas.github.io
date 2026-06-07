@@ -1,0 +1,17 @@
+[build]
+  publish = "."
+  # Injects the Railway backend URL into config.js at build time
+  command = "sed -i 's|REPLACE_API_URL|'\"$BACKEND_URL\"'/api/portfolio|g' js/config.js"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"

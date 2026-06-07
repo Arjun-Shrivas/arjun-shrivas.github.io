@@ -3,566 +3,436 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Arjun Shrivas Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <title>Arjun Shrivas — Data Analyst & Data Scientist</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.3/dist/tailwind.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
+  <script src="js/config.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="js/resume-pdf.js" defer></script>
+  <script src="js/portfolio-api.js" defer></script>
   <script src="js/scripts.js" defer></script>
-
- 
 </head>
-<body class="bg-gray-100 text-gray-800">
-    
-  <!-- Header Section -->
-  <header  id="header" class="header fixed  w-full bg-gray-800 text-white py-4 shadow-lg z-10">
-    <nav class="container mx-auto  px-4 flex justify-between items-center mr-8">
-      <h1 class="text-xl font-bold">Arjun Shrivas</h1>
+<body class="text-gray-800">
+
+  <!-- ── Navbar ── -->
+  <header id="header" class="header fixed w-full py-0 z-50">
+    <nav class="container mx-auto px-6 flex justify-between items-center">
+      <h1 class="text-xl font-bold tracking-tight">Arjun Shrivas</h1>
       <ul class="flex space-x-6">
-        <li><a href="#home" class="hover:text-gray-300">Home</a></li>
-        <li><a href="#about" class="hover:text-gray-300">About</a></li>
-        <li><a href="#resume" class="hover:text-gray-300">Resume</a></li>
-        <li><a href="#portfolio" class="hover:text-gray-300">Projects</a></li>
-        <li><a href="#blog" class="hover:text-gray-300">Blogs</a></li>
-        <li><a href="#Contact" class="hover:text-gray-300">Contact</a></li>
-        
-        
-        <!-- <li>
-            <a href="assets/resume.pdf" download="Arjun_Shrivas_Resume.pdf" 
-               class="border border-white text-white px-3 py-1 rounded-full text-sm hover:bg-white hover:text-gray-300 transition">
-              Resume
-            </a>
-          </li> -->
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#resume">Resume</a></li>
+        <li><a href="#portfolio">Projects</a></li>
+        <li><a href="#blog">Blogs</a></li>
+        <li><a href="#Contact">Contact</a></li>
       </ul>
     </nav>
   </header>
 
-  
-<!-- Home Section -->
-<section id="home" class="bg-gray-50 py-20 ">
+  <!-- ── Home / Hero Section ── -->
+  <section id="home" class="py-24">
     <div class="container custom-margin px-5 flex flex-col md:flex-row justify-between items-start">
 
-      <!-- Left Column (Profile and Details) -->
-      <div class="md:w-1/2 flex flex-col space-y-6 mb-10 md:mb-0">
-        <!-- Profile Image -->
+      <!-- Left Column -->
+      <div class="md:w-1/2 flex flex-col space-y-6 mb-10 md:mb-0 fade-up">
+
+        <!-- Profile image + name -->
         <div class="flex items-center">
-          <img src="images/91402040.jpg" alt="Profile" class="rounded-full w-48 h-48 object-cover mr-5">
+          <img src="images/91402040.jpg" alt="Arjun Shrivas"
+               class="profile-ring rounded-full w-48 h-48 object-cover mr-6 flex-shrink-0">
           <div>
-            <h1 class="text-4xl font-bold text-gray-800">Arjun Shrivas</h1>
-            <p class="mt-3 text-gray-600">Job Role: Data Analyst / Data Science Aspirant</p>
-            <p class="text-gray-600">Experience: 3+ Years of Experience</p>
-            <p class="text-gray-600">Address: Bangaluru, India</p>
+            <h1 id="profile-name" class="text-4xl font-extrabold text-gray-800 leading-tight">Arjun Shrivas</h1>
+            <p id="profile-title" class="mt-2 font-semibold" style="color:var(--primary)">Data Analyst &amp; Data Science</p>
+            <p class="text-gray-500 text-sm mt-1"><i class="fas fa-briefcase mr-1"></i><span id="profile-experience">5+ Years Experience</span></p>
+            <p class="text-gray-500 text-sm"><i class="fas fa-map-marker-alt mr-1"></i><span id="profile-address">Sector 11, Gurugram, Haryana</span></p>
           </div>
         </div>
 
-        <!-- Skills Section -->
-        <div class="mt-6">
-          <h2 class="text-xl font-bold text-gray-800 mb-4">Skills:</h2>
-          <div>
-            <p class="text-gray-700">SQL 80%</p>
-            <div class="w-full bg-gray-200 rounded-full h-2 mb-4">
-              <div class="bg-blue-600 h-2 rounded-full" style="width: 80%;"></div>
-            </div>
-            
-            <p class="text-gray-700">Python 90%</p>
-            <div class="w-full bg-gray-200 rounded-full h-2 mb-4">
-              <div class="bg-blue-600 h-2 rounded-full" style="width: 90%;"></div>
-            </div>
-            
-            <p class="text-gray-700">Data Visualization 85%</p>
-            <div class="w-full bg-gray-200 rounded-full h-2 mb-4">
-              <div class="bg-blue-600 h-2 rounded-full" style="width: 85%;"></div>
-            </div>
-            
-            <p class="text-gray-700">Statistical Analysis 75%</p>
-            <div class="w-full bg-gray-200 rounded-full h-2 mb-4">
-              <div class="bg-blue-600 h-2 rounded-full" style="width: 75%;"></div>
-            </div>
-            
-            <p class="text-gray-700">Machine Learning 80%</p>
-            <div class="w-full bg-gray-200 rounded-full h-2 mb-4">
-              <div class="bg-blue-600 h-2 rounded-full" style="width: 80%;"></div>
-            </div>
-            <h2 class="text-xl font-bold text-gray-800 mb-4">Development Stack & Tools:</h2>
-            <div class="flex">
-            
-                <a href="https://azure.microsoft.com/en-in/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/microsoft_azure/microsoft_azure-icon.svg" alt="azure" width="40" height="40"/> </a> 
-                <a href="https://www.djangoproject.com/" target="_blank" rel="noreferrer"> <img src="https://cdn.worldvectorlogo.com/logos/django.svg" alt="django" width="40" height="40"/> </a> 
-                <a href="https://www.docker.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original-wordmark.svg" alt="docker" width="40" height="40"/> </a> 
-                <a href="https://www.figma.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/figma/figma-icon.svg" alt="figma" width="40" height="40"/> </a> 
-                <a href="https://flask.palletsprojects.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/pocoo_flask/pocoo_flask-icon.svg" alt="flask" width="40" height="40"/> </a> 
-                <a href="https://cloud.google.com" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/google_cloud/google_cloud-icon.svg" alt="gcp" width="40" height="40"/> </a> 
-                <a href="https://git-scm.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/> </a> 
-                <a href="https://www.w3.org/html/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/> </a> 
-                <a href="https://www.java.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" alt="java" width="40" height="40"/> </a> 
-                <a href="https://www.linux.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg" alt="linux" width="40" height="40"/> </a> 
-                <a href="https://www.mathworks.com/" target="_blank" rel="noreferrer"> <img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Matlab_Logo.png" alt="matlab" width="40" height="40"/> </a> 
-                <a href="https://www.mongodb.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original-wordmark.svg" alt="mongodb" width="40" height="40"/> </a> 
-                <a href="https://www.mysql.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg" alt="mysql" width="40" height="40"/> </a> 
-                <a href="https://opencv.org/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/opencv/opencv-icon.svg" alt="opencv" width="40" height="40"/> </a> 
-                <a href="https://pandas.pydata.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/2ae2a900d2f041da66e950e4d48052658d850630/icons/pandas/pandas-original.svg" alt="pandas" width="40" height="40"/> </a> 
-                <a href="https://www.postgresql.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original-wordmark.svg" alt="postgresql" width="40" height="40"/> </a> 
-                <a href="https://postman.com" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg" alt="postman" width="40" height="40"/> </a> 
-                <a href="https://www.python.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="python" width="40" height="40"/> </a> 
-                <a href="https://pytorch.org/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/pytorch/pytorch-icon.svg" alt="pytorch" width="40" height="40"/> </a> 
-                <a href="https://reactjs.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="40" height="40"/> </a> 
-                <a href="https://scikit-learn.org/" target="_blank" rel="noreferrer"> <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg" alt="scikit_learn" width="40" height="40"/> </a> 
-                <a href="https://seaborn.pydata.org/" target="_blank" rel="noreferrer"> <img src="https://seaborn.pydata.org/_images/logo-mark-lightbg.svg" alt="seaborn" width="40" height="40"/> </a> 
-                <a href="https://www.tensorflow.org" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/tensorflow/tensorflow-icon.svg" alt="tensorflow" width="40" height="40"/> </a> 
-                
-                
-            </div>
+        <!-- Skills -->
+        <div class="mt-4">
+          <h2 class="text-lg font-bold text-gray-700 mb-4">Core Skills</h2>
 
+          <div id="skills-container">
+            <p class="text-gray-600 text-sm mb-1 font-medium">SQL <span class="float-right text-indigo-500">80%</span></p>
+            <div class="skill-bar-track"><div class="skill-bar" data-width="80"></div></div>
+            <p class="text-gray-600 text-sm mb-1 font-medium">Python <span class="float-right text-indigo-500">90%</span></p>
+            <div class="skill-bar-track"><div class="skill-bar" data-width="90"></div></div>
+            <p class="text-gray-600 text-sm mb-1 font-medium">Data Visualization <span class="float-right text-indigo-500">85%</span></p>
+            <div class="skill-bar-track"><div class="skill-bar" data-width="85"></div></div>
+            <p class="text-gray-600 text-sm mb-1 font-medium">Statistical Analysis <span class="float-right text-indigo-500">75%</span></p>
+            <div class="skill-bar-track"><div class="skill-bar" data-width="75"></div></div>
+            <p class="text-gray-600 text-sm mb-1 font-medium">Machine Learning <span class="float-right text-indigo-500">80%</span></p>
+            <div class="skill-bar-track"><div class="skill-bar" data-width="80"></div></div>
+          </div>
+
+          <h2 class="text-lg font-bold text-gray-700 mt-6 mb-3">Dev Stack &amp; Tools</h2>
+          <div id="tools-container" class="flex flex-wrap">
+            <a href="https://azure.microsoft.com/en-in/" target="_blank" rel="noreferrer" class="tech-icon"><img src="https://www.vectorlogo.zone/logos/microsoft_azure/microsoft_azure-icon.svg" alt="azure" width="36" height="36"/></a>
+            <a href="https://www.djangoproject.com/" target="_blank" rel="noreferrer" class="tech-icon"><img src="https://cdn.worldvectorlogo.com/logos/django.svg" alt="django" width="36" height="36"/></a>
+            <a href="https://www.docker.com/" target="_blank" rel="noreferrer" class="tech-icon"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original-wordmark.svg" alt="docker" width="36" height="36"/></a>
+            <a href="https://www.figma.com/" target="_blank" rel="noreferrer" class="tech-icon"><img src="https://www.vectorlogo.zone/logos/figma/figma-icon.svg" alt="figma" width="36" height="36"/></a>
+            <a href="https://flask.palletsprojects.com/" target="_blank" rel="noreferrer" class="tech-icon"><img src="https://www.vectorlogo.zone/logos/pocoo_flask/pocoo_flask-icon.svg" alt="flask" width="36" height="36"/></a>
+            <a href="https://cloud.google.com" target="_blank" rel="noreferrer" class="tech-icon"><img src="https://www.vectorlogo.zone/logos/google_cloud/google_cloud-icon.svg" alt="gcp" width="36" height="36"/></a>
+            <a href="https://git-scm.com/" target="_blank" rel="noreferrer" class="tech-icon"><img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="36" height="36"/></a>
+            <a href="https://www.w3.org/html/" target="_blank" rel="noreferrer" class="tech-icon"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="36" height="36"/></a>
+            <a href="https://www.java.com" target="_blank" rel="noreferrer" class="tech-icon"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" alt="java" width="36" height="36"/></a>
+            <a href="https://www.linux.org/" target="_blank" rel="noreferrer" class="tech-icon"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg" alt="linux" width="36" height="36"/></a>
+            <a href="https://www.mongodb.com/" target="_blank" rel="noreferrer" class="tech-icon"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original-wordmark.svg" alt="mongodb" width="36" height="36"/></a>
+            <a href="https://www.mysql.com/" target="_blank" rel="noreferrer" class="tech-icon"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg" alt="mysql" width="36" height="36"/></a>
+            <a href="https://opencv.org/" target="_blank" rel="noreferrer" class="tech-icon"><img src="https://www.vectorlogo.zone/logos/opencv/opencv-icon.svg" alt="opencv" width="36" height="36"/></a>
+            <a href="https://pandas.pydata.org/" target="_blank" rel="noreferrer" class="tech-icon"><img src="https://raw.githubusercontent.com/devicons/devicon/2ae2a900d2f041da66e950e4d48052658d850630/icons/pandas/pandas-original.svg" alt="pandas" width="36" height="36"/></a>
+            <a href="https://www.postgresql.org" target="_blank" rel="noreferrer" class="tech-icon"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original-wordmark.svg" alt="postgresql" width="36" height="36"/></a>
+            <a href="https://postman.com" target="_blank" rel="noreferrer" class="tech-icon"><img src="https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg" alt="postman" width="36" height="36"/></a>
+            <a href="https://www.python.org" target="_blank" rel="noreferrer" class="tech-icon"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="python" width="36" height="36"/></a>
+            <a href="https://pytorch.org/" target="_blank" rel="noreferrer" class="tech-icon"><img src="https://www.vectorlogo.zone/logos/pytorch/pytorch-icon.svg" alt="pytorch" width="36" height="36"/></a>
+            <a href="https://reactjs.org/" target="_blank" rel="noreferrer" class="tech-icon"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="36" height="36"/></a>
+            <a href="https://scikit-learn.org/" target="_blank" rel="noreferrer" class="tech-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg" alt="scikit_learn" width="36" height="36"/></a>
+            <a href="https://seaborn.pydata.org/" target="_blank" rel="noreferrer" class="tech-icon"><img src="https://seaborn.pydata.org/_images/logo-mark-lightbg.svg" alt="seaborn" width="36" height="36"/></a>
+            <a href="https://www.tensorflow.org" target="_blank" rel="noreferrer" class="tech-icon"><img src="https://www.vectorlogo.zone/logos/tensorflow/tensorflow-icon.svg" alt="tensorflow" width="36" height="36"/></a>
           </div>
         </div>
       </div>
 
-      <!-- Right Column (About Me Section) -->
-      <div class="md:w-1/2 md:pl-10">
-        <h2 class="text-4xl font-bold text-gray-800 mb-4">About Me</h2>
-        <p class="text-gray-700 mb-4">
-          I am a Data Analyst with a strong foundation in data analytics, data visualization, and statistical analysis. With over 3 years of experience, I have worked across various domains, including fintech and e-commerce, to deliver actionable insights and data-driven strategies.
-          My expertise includes data extraction, cleaning, and manipulation using Python and SQL, as well as creating interactive dashboards to visualize key performance metrics. I thrive on solving real-world data challenges and optimizing processes to enhance decision-making and drive business growth.
+      <!-- Right Column — About Me -->
+      <div class="md:w-1/2 md:pl-12 fade-up fade-up-delay-2">
+        <h2 class="text-4xl font-extrabold mb-5 section-title">About Me</h2>
+        <p id="profile-about-1" class="text-gray-600 mb-4 leading-relaxed">
+          I am a Data Analyst with a strong foundation in data analytics, data visualization, and statistical analysis. With over 5 years of experience across fintech and e-commerce, I deliver actionable insights and data-driven strategies.
         </p>
-        <p class="text-gray-700 mb-4">
-          My expertise spans multiple areas including cloud computing, parallel processing, statistical analysis, and model deployment. I thrive on solving real-world data problems and optimizing systems to enhance business decision-making.
+        <p class="text-gray-600 mb-6 leading-relaxed">
+          My expertise spans cloud computing, parallel processing, statistical analysis, and model deployment. I thrive on solving real-world data problems and optimizing systems to enhance business decision-making.
         </p>
 
-        <!-- Experience, Domain, Education, and Other Details -->
-        <div class="space-y-4 mt-6">
-          <!-- Experience -->
-          <div class="flex">
-            <h4 class="w-32 text-base font-bold text-gray-800">Profile:</h4>
-            <p class="text-gray-600"> Data Analyst &  Data Science</p>
+        <div class="glass-card p-6 space-y-3">
+          <div class="flex items-start">
+            <span class="w-36 text-sm font-bold text-gray-700 flex-shrink-0">Profile:</span>
+            <span class="text-gray-600 text-sm">Data Analyst &amp; Data Science</span>
           </div>
-      
-          <!-- Domain -->
-          <div class="flex">
-            <h3 class="w-32 text-base font-bold text-gray-800">Domain:</h3>
-            <p class="text-gray-600">Fintech, Retail, Ecommerce</p>
+          <div class="flex items-start">
+            <span class="w-36 text-sm font-bold text-gray-700 flex-shrink-0">Domain:</span>
+            <span class="text-gray-600 text-sm">Fintech, Retail, Ecommerce</span>
           </div>
-      
-          <!-- Education -->
-          <div class="flex">
-            <h3 class="w-32 text-base font-bold text-gray-800">Education:</h3>
-            <p class="text-gray-600">Master's in Computer Applications</p>
+          <div class="flex items-start">
+            <span class="w-36 text-sm font-bold text-gray-700 flex-shrink-0">Education:</span>
+            <span class="text-gray-600 text-sm">Master's in Computer Applications</span>
           </div>
-      
-          <!-- Languages -->
-          <div class="flex">
-            <h3 class="w-32 text-base font-bold text-gray-800">Languages:</h3>
-            <p class="text-gray-600">English, Hindi</p>
+          <div class="flex items-start">
+            <span class="w-36 text-sm font-bold text-gray-700 flex-shrink-0">Languages:</span>
+            <span class="text-gray-600 text-sm">English, Hindi</span>
           </div>
-          <!-- Languages & Tools -->
-          <div class="flex">
-              <h3 class="w-32 text-base font-bold text-gray-800">Tools:</h3>
-              <p class="text-gray-600">Microsoft Power BI, Looker & Tableau</p>
+          <div class="flex items-start">
+            <span class="w-36 text-sm font-bold text-gray-700 flex-shrink-0">BI Tools:</span>
+            <span class="text-gray-600 text-sm">Power BI, Looker &amp; Tableau</span>
           </div>
-      
-          <!-- Other Skills -->
-          <div class="flex">
-            <h3 class="w-32 text-base font-bold text-gray-800">Other Skills:</h3>
-            <p class="text-gray-600">Cloud, Python, Excel, Git, JIRA, NLTK, NLP, Model Deployment</p>
+          <div class="flex items-start">
+            <span class="w-36 text-sm font-bold text-gray-700 flex-shrink-0">Other Skills:</span>
+            <span class="text-gray-600 text-sm">Cloud, Python, Excel, Git, JIRA, NLTK, NLP, Model Deployment</span>
           </div>
-      
-          <!-- Interests -->
-          <div class="flex">
-            <h3 class="w-32 text-base font-bold text-gray-800">Interests:</h3>
-            <p class="text-gray-600">Traveling, Travel Photography, Teaching</p>
+          <div class="flex items-start">
+            <span class="w-36 text-sm font-bold text-gray-700 flex-shrink-0">Interests:</span>
+            <span class="text-gray-600 text-sm">Traveling, Travel Photography, Teaching</span>
           </div>
         </div>
 
-        <!-- 30+ Project Completed -->
-        <div class="mt-10">
-            <span class="font-bold text-blue-600 text-2xl">20+</span> 
-            <span class="font-bold text-gray-800 text-center">Project Completed</span>
+        <div class="mt-8 flex items-center space-x-6">
+          <div>
+            <span id="stat-projects" class="stat-number">20+</span>
+            <p class="text-gray-600 text-sm font-semibold">Projects Completed</p>
+          </div>
+          <div>
+            <span id="stat-experience" class="stat-number">5+</span>
+            <p class="text-gray-600 text-sm font-semibold">Years Experience</p>
+          </div>
         </div>
-          
-        <!-- LinkedIn Button -->
-        <div class="mt-10">
-          <a href="https://www.linkedin.com/in/arjun-shrivas-ba45a9146/" target="_blank" class="border-2 border-blue-600 text-blue-600 py-2 px-4 rounded-full hover:bg-blue-600 hover:text-white transition duration-300">View LinkedIn Profile</a>
+
+        <div class="mt-8">
+          <a href="https://www.linkedin.com/in/arjun-shrivas-ba45a9146/" target="_blank"
+             class="btn-outline inline-block py-2 px-6 font-bold text-sm transition">
+            <i class="fab fa-linkedin mr-2"></i>View LinkedIn Profile
+          </a>
         </div>
       </div>
-      
+
     </div>
-</section>
-  
-  <!-- About Section -->
-<section id="about" class="bg-gray-200 py-20 flex justify-center items-center">
-    <div class="container mx-auto text-center">
-      <!-- Title and Subtitle -->
-      <h2 class="text-4xl font-bold mb-4 text-gray-800">Area of Interest</h2>
-      <p class="text-gray-600 mb-12">Take a look at some things I love working on</p>
-  
-      <!-- Content Wrapper with Padding on Sides (20%) -->
-      <div class="w-4/5 mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 justify-center">
-        
-        <!-- Column 1: Cloud Computing -->
-        <div class="flex flex-col items-center text-center">
-          <img src="images/colud.png" alt="Cloud Computing Icon" class="h-16 mb-4">
-          <h3 class="text-xl font-semibold mb-2 text-gray-800">Cloud Computing</h3>
-          <p class="text-gray-600">Leveraging cloud platforms to deploy scalable and secure applications.</p>
+  </section>
+
+  <!-- ── About / Area of Interest Section ── -->
+  <section id="about" class="py-20">
+    <div class="container mx-auto text-center px-4">
+      <h2 class="text-4xl font-extrabold mb-3 section-title">Area of Interest</h2>
+      <p class="text-gray-500 mb-12">Things I love working on</p>
+
+      <div class="w-4/5 mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 justify-center">
+
+        <div class="interest-card fade-up fade-up-delay-1">
+          <img src="images/colud.png" alt="Cloud Computing" class="h-16 mb-4 mx-auto">
+          <h3 class="text-lg font-bold text-gray-800 mb-2">Cloud Computing</h3>
+          <p class="text-gray-500 text-sm">Leveraging cloud platforms to deploy scalable and secure applications.</p>
         </div>
-  
-        <!-- Column 2: Natural Language Processing -->
-        <div class="flex flex-col items-center text-center">
-          <img src="images/nlp.png" alt="NLP Icon" class="h-16 mb-4">
-          <h3 class="text-xl font-semibold mb-2 text-gray-800">Natural Language Processing</h3>
-          <p class="text-gray-600">Working with text data, language models, and sentiment analysis.</p>
+
+        <div class="interest-card fade-up fade-up-delay-2">
+          <img src="images/nlp.png" alt="NLP" class="h-16 mb-4 mx-auto">
+          <h3 class="text-lg font-bold text-gray-800 mb-2">Natural Language Processing</h3>
+          <p class="text-gray-500 text-sm">Working with text data, language models, and sentiment analysis.</p>
         </div>
-  
-        <!-- Column 3: Machine Learning -->
-        <div class="flex flex-col items-center text-center">
-          <img src="images/ml.png" alt="Machine Learning Icon" class="h-16 mb-4">
-          <h3 class="text-xl font-semibold mb-2 text-gray-800">Machine Learning</h3>
-          <p class="text-gray-600">Building predictive models to solve real-world problems.</p>
+
+        <div class="interest-card fade-up fade-up-delay-3">
+          <img src="images/ml.png" alt="Machine Learning" class="h-16 mb-4 mx-auto">
+          <h3 class="text-lg font-bold text-gray-800 mb-2">Machine Learning</h3>
+          <p class="text-gray-500 text-sm">Building predictive models to solve real-world problems.</p>
         </div>
-  
-        <!-- Column 4: Parallel Computing -->
-        <div class="flex flex-col items-center text-center">
-          <img src="images/parallel.png" alt="Parallel Computing Icon" class="h-16 mb-4">
-          <h3 class="text-xl font-semibold mb-2 text-gray-800">Parallel Computing</h3>
-          <p class="text-gray-600">Optimizing algorithms to run efficiently across multiple processors.</p>
+
+        <div class="interest-card fade-up fade-up-delay-1">
+          <img src="images/parallel.png" alt="Parallel Computing" class="h-16 mb-4 mx-auto">
+          <h3 class="text-lg font-bold text-gray-800 mb-2">Parallel Computing</h3>
+          <p class="text-gray-500 text-sm">Optimizing algorithms to run efficiently across multiple processors.</p>
         </div>
-  
-        <!-- Column 5: Model Deployment -->
-        <div class="flex flex-col items-center text-center">
-          <img src="images/development.png" alt="Model Deployment Icon" class="h-16 mb-4">
-          <h3 class="text-xl font-semibold mb-2 text-gray-800">Model Deployment</h3>
-          <p class="text-gray-600">Deploying machine learning models into production environments.</p>
+
+        <div class="interest-card fade-up fade-up-delay-2">
+          <img src="images/development.png" alt="Model Deployment" class="h-16 mb-4 mx-auto">
+          <h3 class="text-lg font-bold text-gray-800 mb-2">Model Deployment</h3>
+          <p class="text-gray-500 text-sm">Deploying machine learning models into production environments.</p>
         </div>
-  
-        <!-- Column 6: Data Analytics -->
-        <div class="flex flex-col items-center text-center">
-          <img src="images/data_ana.png" alt="Data Analytics Icon" class="h-16 mb-4">
-          <h3 class="text-xl font-semibold mb-2 text-gray-800">Data Analytics</h3>
-          <p class="text-gray-600">Analyzing data to uncover insights and drive decision-making.</p>
+
+        <div class="interest-card fade-up fade-up-delay-3">
+          <img src="images/data_ana.png" alt="Data Analytics" class="h-16 mb-4 mx-auto">
+          <h3 class="text-lg font-bold text-gray-800 mb-2">Data Analytics</h3>
+          <p class="text-gray-500 text-sm">Analyzing data to uncover insights and drive decision-making.</p>
         </div>
-        
+
       </div>
     </div>
   </section>
 
-
- <!-- Resume Section -->
-<!-- Resume Section -->
-<section id="resume" class="py-20 bg-gray-50">
+  <!-- ── Resume Section ── -->
+  <section id="resume" class="py-20">
     <div class="container custom-margin px-6">
-        <!-- Title -->
-        <h2 class="text-4xl font-bold text-gray-800 mb-8 text-center">Resume</h2>
+      <h2 class="text-4xl font-extrabold text-center mb-4 section-title">Resume</h2>
+      <p class="text-gray-500 text-center mb-8 max-w-2xl mx-auto">
+        Results-driven Data Analyst with extensive experience in predictive modeling, data analysis, and machine learning — proven ability to drive business decisions and enhance operational efficiency.
+      </p>
 
-        <!-- Summary -->
-        <div class="mb-8 text-gray-700 text-center">
-            <p>
-                Results-driven Data Scientist with extensive experience in predictive modeling, data analysis, and machine learning.
-                Proven ability to develop and implement algorithms that drive business decisions and enhance operational efficiency.
-            </p>
+      <div class="gradient-divider"></div>
+
+      <!-- Experience -->
+      <div id="experience-container" class="flex flex-wrap gap-6 mt-2">
+        <div class="glass-card p-6 w-1/2 fade-up fade-up-delay-1">
+          <span class="text-xs font-bold uppercase tracking-widest" style="color:var(--primary)">Dec 2021 – Feb 2024</span>
+          <h3 class="text-lg font-bold text-gray-800 mt-1">Data Analyst</h3>
+          <h4 class="text-sm font-semibold text-gray-600 mb-1">Delixus Software India Pvt. Ltd · Bangalore</h4>
+          <p class="text-xs text-gray-500 mb-3">Data Extraction · Web Scraping · Visualization · Predictive Modeling</p>
+          <ul class="list-disc list-inside text-gray-600 text-sm space-y-1">
+            <li>Python-based web scraping for competitive pricing analysis.</li>
+            <li>Data extraction &amp; cleaning (Python + SQL) to enable informed team decisions.</li>
+            <li>A/B testing frameworks improving customer engagement by 20%.</li>
+            <li>Interactive dashboards presenting key metrics to stakeholders.</li>
+            <li>Daily stand-ups contributing to collaborative, on-time delivery.</li>
+          </ul>
         </div>
 
-        <!-- Divider -->
-        <div class="border-t-4 border-gray-300 my-8"></div>
+        <div class="glass-card p-6 w-1/2 fade-up fade-up-delay-2">
+          <span class="text-xs font-bold uppercase tracking-widest" style="color:var(--secondary)">Jul 2020 – Feb 2021</span>
+          <h3 class="text-lg font-bold text-gray-800 mt-1">Python Backend Developer</h3>
+          <h4 class="text-sm font-semibold text-gray-600 mb-1">Apptech Interactive Services Pvt Ltd · Gwalior</h4>
+          <p class="text-xs text-gray-500 mb-3">Backend Development · Automation</p>
+          <ul class="list-disc list-inside text-gray-600 text-sm space-y-1">
+            <li>Automated schema comparison reducing operational time by 95%.</li>
+            <li>Designed SQL scripts for seamless database schema integration.</li>
+            <li>Enhanced project visibility through documentation &amp; MS Office tools.</li>
+            <li>Delivered robust backend solutions for e-commerce applications.</li>
+          </ul>
+        </div>
+      </div>
 
-        <!-- Experience Section -->
-        <div class="flex justify-between">
-            <!-- Experience Container 1 -->
-            <div class="border border-gray-300 rounded-lg p-6 w-1/2 mr-4 shadow-md">
-                <h3 class="text-lg font-bold text-gray-800">Data Analyst</h3>
-                <h4 class="text-md font-semibold text-gray-800">Delixus Software India Pvt. Ltd</h4>
-                <p class="text-gray-600">Dec 2021 - Feb 2024 | Bangalore, Karnataka</p>
-                <p class="text-gray-600">Data Extraction,Web Scraping, Data Visualization & Predictive Modeling</p>
-                <ul class="list-disc list-inside text-gray-700 mt-2">
-                    <li class="ml-4">Compiled pricing data for competitive analysis through Python-based web scraping.</li>
-                    <li class="ml-4">Conducted data extraction and cleaning using Python and SQL to compile comprehensive pricing data for competitive analysis, enabling informed decision-making across the team.</li>
-                    <li class="ml-4">Implemented A/B testing frameworks leading to a 20% improvement in customer engagement metrics.</li>
-                    <li class="ml-4">Developed interactive dashboards and visualizations to present key metrics and trends, facilitating better communication of insights to stakeholders.</li>
-                    <li class="ml-4">Participated in daily stand-up meetings to discuss project progress and challenges, contributing to a collaborative team environment and timely project delivery.</li>
-                  </ul>
-            </div>
+      <!-- Education -->
+      <h3 class="text-3xl font-extrabold text-center mt-12 mb-4 section-title">Education</h3>
+      <div class="gradient-divider"></div>
 
-            <!-- Experience Container 2 -->
-            <div class="border border-gray-300 rounded-lg p-6 w-1/2 ml-4 shadow-md">
-                <h3 class="text-lg font-bold text-gray-800">Python Backend Developer</h3>
-                <h4 class="text-md font-semibold text-gray-800">Apptech Interactive Services Pvt Ltd</h4>
-                <p class="text-gray-600">Jul 2020 - Feb 2021 | Gwalior, Madhya Pradesh</p>
-                <p class="text-gray-600">Backend Development & Automation</p>
-                <ul class="list-disc list-inside text-gray-700 mt-2">
-                    <li class="ml-4">Automated schema comparison processes, reducing operational time by 95% for real-time reporting.</li>
-                    <li class="ml-4">Designed SQL scripts ensuring seamless integration of new database schemas.</li>
-                    <li class="ml-4">Enhanced project tracking and visibility through comprehensive documentation and MS Office tools.</li>
-                    <li class="ml-4">Collaborated with cross-functional teams to deliver robust backend solutions for e-commerce applications.</li>
-                </ul>
-            </div>
+      <div id="education-container" class="flex flex-wrap gap-6">
+        <div class="glass-card p-6 w-1/2 fade-up fade-up-delay-1">
+          <span class="text-xs font-bold uppercase tracking-widest" style="color:var(--primary)">May 2021 – Oct 2021</span>
+          <h4 class="text-md font-bold text-gray-800 mt-1">Post-Graduate Diploma</h4>
+          <p class="text-gray-600 text-sm">Diploma in Big Data Analytics (e-DBDA)</p>
+          <p class="text-gray-500 text-sm">C-DAC · Bangalore, Karnataka</p>
         </div>
 
-        <!-- Education Section -->
-        <h3 class="text-3xl font-bold text-gray-800 mt-10 mb-4 text-center">Education</h3>
-
-        <!-- Divider -->
-        <div class="border-t-4 border-gray-300 my-8"></div>
-
-        <div class="flex justify-between">
-            <!-- Education Container 1 -->
-            <div class="border border-gray-300 rounded-lg p-6 w-1/2 mr-4 shadow-md">
-                <h4 class="text-md font-semibold text-gray-800">Post-Graduate Diploma</h4>
-                <p class="text-gray-600">Diploma in Big Data Analytics (e-DBDA)</p>
-                <p class="text-gray-600">Center For Development Of Advanced Computing (C-DAC)</p>
-                <p class="text-gray-600">May 2021 - Oct 2021 | Bangalore, Karnataka</p>
-            </div>
-
-            <!-- Education Container 2 -->
-            <div class="border border-gray-300 rounded-lg p-6 w-1/2 ml-4 shadow-md">
-                <h4 class="text-md font-semibold text-gray-800">MCA/BCA in Computer Science</h4>
-                <p class="text-gray-600">Maharana Pratap College of Technology</p>
-                <p class="text-gray-600">2017 - 2020 | Gwalior, Madhya Pradesh</p>
-                <p class="text-gray-600">CGPA: 7.86</p>
-                <p class="text-gray-600">Relevant Coursework: Data Structures and Algorithms (Python), DBMS (MySQL), Operating System, Data Science Fundamentals</p>
-            </div>
+        <div class="glass-card p-6 w-1/2 fade-up fade-up-delay-2">
+          <span class="text-xs font-bold uppercase tracking-widest" style="color:var(--secondary)">2017 – 2020</span>
+          <h4 class="text-md font-bold text-gray-800 mt-1">MCA / BCA in Computer Science</h4>
+          <p class="text-gray-600 text-sm">Maharana Pratap College of Technology · Gwalior</p>
+          <p class="text-gray-500 text-sm">CGPA: 7.86</p>
+          <p class="text-gray-500 text-sm text-xs mt-1">Data Structures, DBMS (MySQL), OS, Data Science Fundamentals</p>
         </div>
+      </div>
 
-        <!-- Download Resume Button -->
-        <div class="flex justify-center mt-8">
-            <a href="./assets/Arjun_Shrivas_CV.pdf"  target="_blank" download="Arjun_Shrivas_Resume.pdf" class="bg-transparent border-2 border-blue-600 text-blue-600 font-bold py-3 px-6 rounded-lg text-lg hover:bg-blue-600 hover:text-white transition duration-300">
-                Download Resume
-            </a>
-        </div>
+      <div class="flex justify-center mt-10">
+        <button onclick="generateResumePDF()"
+           class="btn-outline-rect inline-block font-bold py-3 px-8 text-base transition cursor-pointer">
+          <i class="fas fa-download mr-2"></i>Download Resume
+        </button>
+      </div>
     </div>
-</section>
+  </section>
 
-
-
-<!-- Portfolio Section -->
-<section id="portfolio" class="py-20 bg-gray-50">
+  <!-- ── Projects Section ── -->
+  <section id="portfolio" class="py-20">
     <div class="container custom-margin px-6">
-        <!-- Title -->
-        <h2 class="text-4xl font-bold text-gray-800 mb-8 text-center">Projects</h2>
+      <h2 class="text-4xl font-extrabold text-center mb-4 section-title">Projects</h2>
+      <p class="text-gray-500 text-center mb-8 max-w-2xl mx-auto">
+        A diverse range of projects showcasing skills in data science, machine learning, and software development.
+      </p>
+      <div class="gradient-divider"></div>
 
-        <!-- Summary -->
-        <div class="mb-8 text-gray-700 text-center">
-            <p>
-                Explore my diverse range of projects that showcase my skills in data science, machine learning, and software development. 
-                Each project reflects my commitment to leveraging technology to solve real-world problems and enhance user experiences.
+      <div id="projects-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+
+        <div class="glass-card flex flex-col h-full overflow-hidden fade-up fade-up-delay-1">
+          <img src="images/loan.jpg" alt="Loan Approval System" class="w-full rounded-t-2xl object-cover" style="height:180px">
+          <div class="p-5 flex-grow flex flex-col">
+            <h3 class="font-bold text-base text-gray-800 mb-2">Loan Approval System</h3>
+            <p class="text-gray-500 text-sm line-clamp-3">
+              Predictive model for LoanTap — an online platform specialising in customised loan products for millennials, focused on the personal loan underwriting process.
             </p>
+          </div>
         </div>
 
-        <!-- Divider -->
-        <div class="border-t-4 border-gray-300 my-8"></div>
-
-        <!-- Portfolio Grid -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-            <!-- Portfolio Item 1 -->
-            <div class="border border-gray-300 rounded-lg shadow-md flex flex-col h-full">
-                <img src="images/loan.jpg" alt="Loan Approval System" class="w-full rounded-t-lg">
-                <div class="p-4 flex-grow flex flex-col">
-                    <h3 class="font-bold text-xl text-gray-800 mb-2">Loan Approval System</h3>
-                    <p class="text-gray-600 text-ellipsis overflow-hidden" style="display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3;">
-                        The objective of this case study is to develop a predictive model for LoanTap, an online platform specializing in customized loan products for millennials. The focus is on the underwriting process for Personal Loans.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Portfolio Item 2 -->
-            <div class="border border-gray-300 rounded-lg shadow-md flex flex-col h-full">
-                <img src="images/credit-rsik.jpg" alt="Credit Risk Modeling" class="w-full rounded-t-lg">
-                <div class="p-4 flex-grow flex flex-col">
-                    <h3 class="font-bold text-xl text-gray-800 mb-2">Credit Risk Modeling</h3>
-                    <p class="text-gray-600 text-ellipsis overflow-hidden" style="display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3;">
-                        Credit scoring models evaluate an individual profile by analyzing factors like their payment history, number of accounts, credit types, and other financial information.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Portfolio Item 3 -->
-            <div class="border border-gray-300 rounded-lg shadow-md flex flex-col h-full">
-                <img src="images/text_classification.jpg" alt="NLP Text Classification" class="w-full rounded-t-lg">
-                <div class="p-4 flex-grow flex flex-col">
-                    <h3 class="font-bold text-xl text-gray-800 mb-2">NLP Text Classification</h3>
-                    <p class="text-gray-600 text-ellipsis overflow-hidden" style="display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3;">
-                        This project focuses on text classification using Natural Language Processing (NLP) techniques. The goal is to classify news articles into categories like Politics, Technology, Sports, and more.
-                    </p>
-                </div>
-            </div>
-
-       <!-- Portfolio Item 4 -->
-            <div class="border border-gray-300 rounded-lg shadow-md flex flex-col h-full">
-                <img src="images/customer.jpg" alt="Understanding Customer Patterns Across Brazil" class="w-full rounded-t-lg">
-                <div class="p-4 flex-grow flex flex-col">
-                    <h3 class="font-bold text-xl text-gray-800 mb-2">Understanding Customer Patterns Across Brazil</h3>
-                    <p class="text-gray-600 text-ellipsis overflow-hidden" style="display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3;">
-                        This repository contains a comprehensive case study analyzing customer patterns across Brazil using BigQuery and SQL. The insights aim to inform strategic decisions.
-                    </p>
-                </div>
-            </div>
-
-
-            <!-- Portfolio Item 5 -->
-            <div class="border border-gray-300 rounded-lg shadow-md flex flex-col h-full">
-                <img src="images/finacial.png" alt="Financial Performance Overview" class="w-full rounded-t-lg">
-                <div class="p-4 flex-grow flex flex-col">
-                    <h3 class="font-bold text-xl text-gray-800 mb-2">Financial Performance Overview</h3>
-                    <p class="text-gray-600 text-ellipsis overflow-hidden" style="display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3;">
-                        This project focuses on tracking and visualizing year-over-year financial metrics to help businesses understand their performance trends and operational efficiency.
-                    </p>
-                </div>
-            </div>
+        <div class="glass-card flex flex-col h-full overflow-hidden fade-up fade-up-delay-2">
+          <img src="images/credit-rsik.jpg" alt="Credit Risk Modeling" class="w-full rounded-t-2xl object-cover" style="height:180px">
+          <div class="p-5 flex-grow flex flex-col">
+            <h3 class="font-bold text-base text-gray-800 mb-2">Credit Risk Modeling</h3>
+            <p class="text-gray-500 text-sm line-clamp-3">
+              Credit scoring models evaluating individual profiles using payment history, account types, and other financial information.
+            </p>
+          </div>
         </div>
 
-        
-        <!-- Button to GitHub Profile -->
-        
-        <div class="flex justify-center mt-8">
-            <a href="https://github.com/Arjun-Shrivas" target="_blank" class="bg-transparent border-2 border-blue-600 text-blue-600 font-bold py-3 px-6 rounded-lg text-lg hover:bg-blue-600 hover:text-white transition duration-300">
-                View More Projects on GitHub
-            </a>
+        <div class="glass-card flex flex-col h-full overflow-hidden fade-up fade-up-delay-3">
+          <img src="images/text_classification.jpg" alt="NLP Text Classification" class="w-full rounded-t-2xl object-cover" style="height:180px">
+          <div class="p-5 flex-grow flex flex-col">
+            <h3 class="font-bold text-base text-gray-800 mb-2">NLP Text Classification</h3>
+            <p class="text-gray-500 text-sm line-clamp-3">
+              Text classification using NLP to categorise news articles into Politics, Technology, Sports, and more.
+            </p>
+          </div>
         </div>
+
+        <div class="glass-card flex flex-col h-full overflow-hidden fade-up fade-up-delay-1">
+          <img src="images/customer.jpg" alt="Customer Patterns Brazil" class="w-full rounded-t-2xl object-cover" style="height:180px">
+          <div class="p-5 flex-grow flex flex-col">
+            <h3 class="font-bold text-base text-gray-800 mb-2">Customer Patterns Across Brazil</h3>
+            <p class="text-gray-500 text-sm line-clamp-3">
+              Case study analysing customer patterns using BigQuery and SQL to inform strategic decisions.
+            </p>
+          </div>
+        </div>
+
+        <div class="glass-card flex flex-col h-full overflow-hidden fade-up fade-up-delay-2">
+          <img src="images/finacial.png" alt="Financial Performance Overview" class="w-full rounded-t-2xl object-cover" style="height:180px">
+          <div class="p-5 flex-grow flex flex-col">
+            <h3 class="font-bold text-base text-gray-800 mb-2">Financial Performance Overview</h3>
+            <p class="text-gray-500 text-sm line-clamp-3">
+              Tracking and visualising year-over-year financial metrics to help businesses understand performance trends and operational efficiency.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="flex justify-center mt-10">
+        <a href="https://github.com/Arjun-Shrivas" target="_blank"
+           class="btn-outline-rect inline-block font-bold py-3 px-8 text-base transition">
+          <i class="fab fa-github mr-2"></i>View More on GitHub
+        </a>
+      </div>
     </div>
-</section>
-  
+  </section>
 
-  <!-- Blog Section -->
-<section id="blog" class="py-20 bg-gray-50">
+  <!-- ── Blog Section ── -->
+  <section id="blog" class="py-20">
     <div class="container custom-margin px-6">
-        <!-- Title -->
-        <h2 class="text-4xl font-bold text-gray-800 mb-8 text-center">My Blogs</h2>
+      <h2 class="text-4xl font-extrabold text-center mb-4 section-title">My Blogs</h2>
+      <p class="text-gray-500 text-center mb-8">
+        Insights, tutorials, and experiences in data science and technology.
+      </p>
+      <div class="gradient-divider"></div>
 
-        <!-- Summary -->
-        <div class="mb-8 text-gray-700 text-center">
-            <p>
-                Explore my latest blogs where I share insights, tutorials, and experiences in the world of data science and technology.
-            </p>
-        </div>
+      <div id="blog-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"></div>
 
-        <!-- Divider -->
-        <div class="border-t-4 border-gray-300 my-8"></div>
-
-
-       
-        <!-- Blog Grid -->
-        <div id="blog-container" class="grid  grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-            <!-- Dynamic Blog Cards will be inserted here -->
-             
-        </div>
-
-        <!-- Button to More Blogs -->
-        <div class="flex justify-center mt-8">
-            <a href="https://medium.com/@arjunshrivas1997" target="_blank" class="bg-transparent border-2 border-blue-600 text-blue-600 font-bold py-3 px-6 rounded-lg text-lg hover:bg-blue-600 hover:text-white transition duration-300">
-                Read More Blog
-            </a>
-        </div>
+      <div class="flex justify-center mt-10">
+        <a href="https://medium.com/@arjunshrivas1997" target="_blank"
+           class="btn-outline-rect inline-block font-bold py-3 px-8 text-base transition">
+          <i class="fab fa-medium mr-2"></i>Read More Blogs
+        </a>
+      </div>
     </div>
-</section>
+  </section>
 
-<!-- contact section-->
-<section class="contact-section" id="Contact">
+  <!-- ── Contact Section ── -->
+  <section class="contact-section" id="Contact">
     <div class="container mx-auto px-4">
-      <!-- Heading Section -->
+      <div class="text-center mb-12">
+        <h1 class="text-5xl font-extrabold section-title">Contact Me</h1>
+        <p class="text-gray-500 mt-3">Below are the details to reach out to me!</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+
+        <div class="contact-card text-center p-6 fade-up fade-up-delay-1">
+          <div class="mb-4" style="color:var(--primary)"><i class="fas fa-map-signs text-4xl"></i></div>
+          <h3 class="text-lg font-bold text-gray-800 mb-1">Address</h3>
+          <p id="contact-address" class="text-gray-500 text-sm">Sector 11, Gurugram, Haryana, India</p>
+        </div>
+
+        <div class="contact-card text-center p-6 fade-up fade-up-delay-2">
+          <div class="mb-4" style="color:var(--primary)"><i class="fas fa-phone-alt text-4xl"></i></div>
+          <h3 class="text-lg font-bold text-gray-800 mb-1">Phone</h3>
+          <p class="text-sm"><a id="contact-phone" href="tel:+919074841166" style="color:var(--primary)">+91-9074841166</a></p>
+        </div>
+
+        <div class="contact-card text-center p-6 fade-up fade-up-delay-3">
+          <div class="mb-4" style="color:var(--primary)"><i class="fas fa-paper-plane text-4xl"></i></div>
+          <h3 class="text-lg font-bold text-gray-800 mb-1">Email</h3>
+          <p class="text-sm"><a id="contact-email" href="mailto:arjunshrivas1997@gmail.com" style="color:var(--primary)">arjunshrivas1997@gmail.com</a></p>
+        </div>
+
+        <div class="contact-card text-center p-6 fade-up fade-up-delay-4">
+          <div class="mb-4" style="color:var(--primary)"><i class="fas fa-file-download text-4xl"></i></div>
+          <h3 class="text-lg font-bold text-gray-800 mb-1">Resume</h3>
+          <p class="text-sm"><a href="#" onclick="generateResumePDF(); return false;" style="color:var(--primary)">Download CV</a></p>
+        </div>
+
+      </div>
+
       <div class="text-center mb-10">
-        <h1 class="text-5xl font-bold text-gray-800">Contact Me</h1>
-        
-        <p class="text-lg text-gray-500 mt-4">Below are the details to reach out to me!</p>
+        <h2 class="text-2xl font-semibold text-gray-800">Have a <span style="color:var(--primary)">Question?</span></h2>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLScQx4DAEBT3c3EONDd8qeEBuZEz10VPVb6u9ht9eYDCmIlchw/viewform?usp=sf_link"
+           target="_blank"
+           class="btn-outline-rect inline-block mt-4 py-2 px-6 font-semibold text-sm transition">
+          Click Here
+        </a>
       </div>
-  
-      <!-- Contact Info Section -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
-        <!-- Address Info -->
-        <div class="text-center p-6 border border-gray-300 rounded-lg shadow-md">
-          <div class="text-blue-600 mb-4">
-            <i class="fas fa-map-signs text-4xl"></i>
-          </div>
-          <h3 class="text-xl font-bold text-gray-800 mb-2">Address</h3>
-          <p class="text-gray-600">Bengaluru, India</p>
-        </div>
-  
-        <!-- Phone Info -->
-        <div class="text-center p-6 border border-gray-300 rounded-lg shadow-md">
-          <div class="text-blue-600 mb-4">
-            <i class="fas fa-phone-alt text-4xl"></i>
-          </div>
-          <h3 class="text-xl font-bold text-gray-800 mb-2">Contact Number</h3>
-          <p class="text-gray-600"><a href="tel:+0101010101" class="text-blue-600 hover:underline">+91-9074841166</a></p>
-        </div>
-  
-        <!-- Email Info -->
-        <div class="text-center p-6 border border-gray-300 rounded-lg shadow-md">
-          <div class="text-blue-600 mb-4">
-            <i class="fas fa-paper-plane text-4xl"></i>
-          </div>
-          <h3 class="text-xl font-bold text-gray-800 mb-2">Email Address</h3>
-          <p class="text-gray-600"><a href="mailto:contact@domainname.com" class="text-blue-600 hover:underline">arjunshrivas1997@gmail.com</a></p>
-        </div>
-  
-        <!-- Resume Download Info -->
-        <div class="text-center p-6 border border-gray-300 rounded-lg shadow-md">
-          <div class="text-blue-600 mb-4">
-            <i class="fas fa-file-download text-4xl"></i>
-          </div>
-          <h3 class="text-xl font-bold text-gray-800 mb-2">Download Resume</h3>
-          <p class="text-gray-600"><a href="./assets/Arjun_Shrivas_CV.pdf"  target="_blank" download="Arjun_Shrivas_Resume.pdf" class="text-blue-600 hover:underline">Resume Link</a></p>
-        </div>
-      </div>
-  
-      <!-- Question Section -->
-      <div class="text-center mb-10">
-        <h2 class="text-2xl font-semibold text-gray-800">Have a <span class="text-blue-600">Question?</span></h2>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLScQx4DAEBT3c3EONDd8qeEBuZEz10VPVb6u9ht9eYDCmIlchw/viewform?usp=sf_link" target="_blank" class="inline-block mt-4 py-2 px-6 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-600 hover:text-white transition duration-300">Click Here</a>
-      </div>
-  
-      <!-- Social Media Links -->
+
       <div class="flex justify-center space-x-6">
-        <a href="#" class="text-gray-600 hover:text-blue-600"><i class="fab fa-youtube text-2xl"></i></a>
-        <a href="https://www.linkedin.com/in/arjun-shrivas-ba45a9146/" class="text-gray-600 hover:text-blue-600"><i class="fab fa-linkedin text-2xl"></i></a>
-        <a href="#" class="text-gray-600 hover:text-blue-600"><i class="fab fa-twitter text-2xl"></i></a>
-        <a href="#" class="text-gray-600 hover:text-blue-600"><i class="fab fa-facebook text-2xl"></i></a>
-        <a href="#" class="text-gray-600 hover:text-blue-600"><i class="fab fa-instagram text-2xl"></i></a>
+        <a href="#" class="text-gray-400 hover:text-red-500 transition text-2xl"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.linkedin.com/in/arjun-shrivas-ba45a9146/" class="text-gray-400 transition text-2xl" style="transition:color .3s" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color=''"><i class="fab fa-linkedin"></i></a>
+        <a href="#" class="text-gray-400 hover:text-sky-500 transition text-2xl"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="text-gray-400 hover:text-blue-700 transition text-2xl"><i class="fab fa-facebook"></i></a>
+        <a href="#" class="text-gray-400 hover:text-pink-600 transition text-2xl"><i class="fab fa-instagram"></i></a>
       </div>
     </div>
   </section>
-  
 
-
- 
-
-  
- <!-- Footer Section -->
-<footer class="bg-gray-800 text-gray-300 py-8">
+  <!-- ── Footer ── -->
+  <footer class="py-8">
     <div class="container mx-auto text-center">
-      <!-- Social Media Icons -->
-      <!-- <div class="flex justify-center items-center space-x-4 mb-6">
-        <a href="https://www.linkedin.com/in/arjun-shrivas-ba45a9146/" target="_blank" class="text-gray-300 hover:text-white transition">
-          <i class="fab fa-linkedin fa-2x"></i>
-        </a>
-        <a href="https://github.com/Arjun-Shrivas" target="_blank" class="text-gray-300 hover:text-white transition">
-          <i class="fab fa-github fa-2x"></i>
-        </a>
-        <a href="mailto:arjunshrivas1997@gmail.com" class="text-gray-300 hover:text-white transition">
-          <i class="fas fa-envelope fa-2x"></i>
-        </a>
-        <a href="https://medium.com/@arjunshrivas1997" target="_blank" class="text-gray-300 hover:text-white transition">
-          <i class="fab fa-medium fa-2x"></i>
-        </a>
-         Tableau Icon 
-        <a href="https://public.tableau.com/app/profile/arjun.shrivas/vizzes" target="_blank" class="text-gray-300 hover:text-white transition">
-          <img src="images/tableau_public.png" alt="Tableau" class="h-8" />
-        </a>
-      </div> -->
-  
-      <!-- Copyright -->
-      <p class="text-gray-400">&copy; 2024 Arjun Shrivas. All Rights Reserved.</p>
-  
-      <!-- Quick Links -->
-      <!-- <div class="mt-4">
-        <a href="#home" class="mx-3 text-gray-300 hover:text-white transition">Home</a>
-        <a href="#about" class="mx-3 text-gray-300 hover:text-white transition">About</a>
-        <a href="#resume" class="mx-3 text-gray-300 hover:text-white transition">Resume</a>
-        <a href="#portfolio" class="mx-3 text-gray-300 hover:text-white transition">Projects</a>
-        <a href="#blog" class="mx-3 text-gray-300 hover:text-white transition">Blog</a>
-        <a href="#contact" class="mx-3 text-gray-300 hover:text-white transition">Contact</a>
-      </div> -->
+      <p class="text-gray-400 text-sm">&copy; 2025 Arjun Shrivas. All Rights Reserved.</p>
     </div>
   </footer>
-  
 
   <script src="https://cdn.tailwindcss.com"></script>
- 
 
-  </body>
+  <!-- fade-up + skill-bar observers are handled by js/portfolio-api.js -->
+
+</body>
 </html>
