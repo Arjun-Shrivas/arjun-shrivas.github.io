@@ -24,14 +24,29 @@ async function loadPortfolio() {
 function renderProfile(p) {
   if (!p || !p.name) return;
 
-  setText('#profile-name',        p.name);
-  setText('#profile-title',       p.title);
-  setText('#profile-experience',  p.experience_years + ' Years Experience');
-  setText('#profile-address',     p.address);
-  setText('#profile-about-1',     p.about_text);
-  setText('#profile-education-val',  'Master\'s in Computer Applications');
-  setText('#stat-projects',       p.projects_count || '20+');
-  setText('#stat-experience',     p.experience_years || '5+');
+  setText('#profile-name',       p.name);
+  setText('#profile-title',      p.title);
+  setText('#profile-experience', p.experience_years + ' Years Experience');
+  setText('#profile-address',    p.address);
+  setText('#stat-projects',      p.projects_count || '20+');
+  setText('#stat-experience',    p.experience_years || '5+');
+
+  // Auto-replace any "X+ years" / "X years" pattern in about text
+  // so changing experience_years in admin updates the paragraph too
+  if (p.about_text) {
+    const updatedAbout = p.about_text
+      .replace(/\d+\+?\s*years? of experience/gi,
+               `${p.experience_years} years of experience`);
+    setText('#profile-about-1', updatedAbout);
+  }
+
+  // Also update the second about paragraph experience mention
+  const about2 = document.getElementById('profile-about-2');
+  if (about2) {
+    about2.innerHTML = about2.innerHTML
+      .replace(/\d+\+?\s*years? of experience/gi,
+               `${p.experience_years} years of experience`);
+  }
 
   // Detail rows
   setText('#detail-address',      p.address);

@@ -1,6 +1,23 @@
 /* Resume PDF generator — ATS-friendly single-column layout using jsPDF */
 
-function generateResumePDF() {
+async function generateResumePDF() {
+  // Fetch live data from API so PDF always reflects latest admin changes
+  let liveProfile = null;
+  try {
+    const apiUrl = window.PORTFOLIO_API_URL || 'http://localhost:5000/api/portfolio';
+    const res  = await fetch(apiUrl);
+    const data = await res.json();
+    liveProfile = data.profile;
+  } catch (e) {
+    console.warn('PDF: could not fetch live profile, using static values');
+  }
+
+  const expYears  = liveProfile?.experience_years || '5+';
+  const address   = liveProfile?.address   || 'Sector 11, Gurugram, Haryana, India';
+  const phone     = liveProfile?.phone     || '+91-9074841166';
+  const email     = liveProfile?.email     || 'arjunshrivas1997@gmail.com';
+  const linkedin  = liveProfile?.linkedin_url || 'linkedin.com/in/arjun-shrivas-ba45a9146';
+
   const { jsPDF } = window.jspdf;
   const doc = new jsPDF({ unit: 'pt', format: 'a4' });
 
@@ -93,11 +110,11 @@ function generateResumePDF() {
   y += 18;
 
   setFont(11, 'normal', 50, 50, 50);
-  doc.text('Data Analyst  |  Data Science', pageW / 2, y, { align: 'center' });
+  doc.text(`Data Analyst  |  Data Science  |  ${expYears} Experience`, pageW / 2, y, { align: 'center' });
   y += 14;
 
   setFont(9.5, 'normal', 80, 80, 80);
-  const contactLine = 'Sector 11, Gurugram, Haryana, India   •   +91-9074841166   •   arjunshrivas1997@gmail.com   •   linkedin.com/in/arjun-shrivas-ba45a9146';
+  const contactLine = `${address}   •   ${phone}   •   ${email}   •   ${linkedin.replace('https://','').replace('http://','')}` ;
   const cLines = doc.splitTextToSize(contactLine, contentW);
   doc.text(cLines, pageW / 2, y, { align: 'center' });
   y += cLines.length * 13 + 4;
@@ -108,7 +125,7 @@ function generateResumePDF() {
 
   sectionHead('Professional Summary');
   textBlock(
-    'Results-driven Data Analyst with 5+ years of experience delivering actionable insights in fintech and e-commerce environments. ' +
+    `Results-driven Data Analyst with ${expYears} years of experience delivering actionable insights in fintech and e-commerce environments. ` +
     'Proficient in Python, SQL, and BI tools (Power BI, Tableau, Looker) with a strong track record of building predictive models, ' +
     'automating data pipelines, and presenting complex findings to stakeholders. Hands-on experience with cloud platforms (Azure, GCP), ' +
     'NLP, and end-to-end model deployment.',
